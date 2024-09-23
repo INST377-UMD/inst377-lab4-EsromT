@@ -1,0 +1,79 @@
+<html></html>
+    <head>
+        <title>INST377 - Lab4</title>
+        <link rel = "stylesheet" href = "INST377-Lab4.css">
+    </head>
+    <body>
+        <!--Header Section-->
+        <h1 id="header">INST377 - Lab 4</h1>
+        
+    <div class="container">
+        <!--Alert Me Section-->
+        <div class="section alert-section">
+            <form name="alertForm">
+                <label>Name:</label>
+                <input type="text" id="firstName">
+                <button onclick ="alertMe()">Alert Me!</button>
+            </form>
+        </div>
+
+        <!--Change Color Section-->
+        
+        <div class="section color-section">
+            <button onclick="changeColor()">Change Color</button>
+        </div>
+        
+        
+        <!--Text Tester Section-->
+        <div class ="section text-tester-section">
+            <form name="valtext">
+                <label>Text Tester:</label>
+                <input type = "text" id="textTester">
+                <button onclick="valText()">Validate Text</button>
+            </form>
+        </div>   
+        <!--Add Text Section-->
+        <div class ="section add-text-section">
+            <button onclick="addText()">Add Text</button>
+        </div>
+    </div>
+
+        <script type="text/javascript">
+            function alertMe(){
+                let firstName = document.getElementById("firstName").value;
+
+                if(document.alertForm.firstName.value === ""){
+                    alert('Enter a First Name!!!')
+                    return false;
+                }
+                else{
+                    alert('Hi ' + firstName + "!")
+                }
+            }
+
+            document.body.style.backgroundColor = 'blue';
+            function changeColor(){
+                if(document.body.style.backgroundColor == "blue"){
+                    document.body.style.backgroundColor = 'red';
+                    return False
+                }
+                else{
+                    document.body.style.backgroundColor = 'blue'
+                }
+            }
+        
+            var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            function valText(){
+                if(validation.test(document.valtext.textTester.value)){
+                    alert('How about...nah')
+                    return false
+                }
+            }
+        
+            const head = document.getElementById('header')
+            function addText(){
+                head.textContent += " - Adding Text"
+            }
+        </script>
+    </body>
+</html>
